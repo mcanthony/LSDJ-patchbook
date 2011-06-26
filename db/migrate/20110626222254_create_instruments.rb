@@ -1,20 +1,41 @@
 class CreateInstruments < ActiveRecord::Migration
   def self.up
     create_table :instruments do |t|
-      t.string :type, :null => false
+      t.string :type, :null => false # WAVE PULSE NOISE
       t.string :author, :null => true
+      t.boolean :share, :null => false, :default => 1
 
-      t.string :name, :null => true, :limit => 5
-      t.string :envelope, :null => false, :default => "A8", :limit => 2
-      t.string :wave, :null => false, :default => 50 # 12.5 25 50 75
-      t.string :output, :null => false, :default => "LR", :limit => 2 # LR L R
-      t.string :length, :null => false, :default => "UNLIM", :limit => 5
-      t.string :sweep, :null => false, :default => "FF", :limit => 2
-      t.string :vib_type, :null => false, :default => "HF", :limit => 3 # HF SIN TRI SQR
-      t.string :pu2_tune, :null => false, :default => 00, :limit => 2
-      t.string :pu_fine, :null => false, :default => 0, :limit => 1
-      t.string :automate, :null => false, :default => "OFF", :limit => 3 # ON OFF
-      t.string :table, :null => false, :default => "OFF", :limit => 3 # ON OFF
+      t.string :name
+      t.string :envelope
+      t.string :wave
+      t.string :output
+      t.string :length
+      t.string :shape
+      t.string :sweep
+      t.string :vib_type
+      t.string :pu2_tune
+      t.string :pu_fine
+      t.string :automate
+      t.string :table
+
+      t.string :volume
+      t.string :play
+      t.string :repeat
+      t.string :speed
+
+      t.string :synth_wave
+      t.string :synth_filter
+      t.string :synth_q
+      t.string :synth_dist
+      t.string :synth_phase
+      t.string :synth_start_volume
+      t.string :synth_start_cutoff
+      t.string :synth_start_phase
+      t.string :synth_start_vshift
+      t.string :synth_end_volume
+      t.string :synth_end_cutoff
+      t.string :synth_end_phase
+      t.string :synth_end_vshift
 
       # Table, 14 rows
       t.string :table_content, :null => true # a JSON encoded content of the Table
