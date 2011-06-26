@@ -1,0 +1,16 @@
+= form_for @instrument do |f|
+  %p
+    = f.label :type
+    = f.select :type, ["NOISE", "PULSE", "WAVE"], {}, {:selected => @instrument.type, :onchange => 'changeINStype(this.options[this.selectedIndex].value)'}
+  %p
+    = f.label :author
+    = f.text_field :author
+  %p
+    = f.label :name
+    = f.text_field :name
+  %br
+  %br
+  %p
+    = f.label :instrument_name
+    = f.text_field :instrument_name, :maxlength => 5, :size => 5
+  = render :partial => "form_#{@instrument.type.downcase}"
