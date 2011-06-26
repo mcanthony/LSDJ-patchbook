@@ -1,0 +1,27 @@
+= form_for @user do |f|
+  %p
+    = f.error_messages
+
+  %table
+    %tr
+      %td= f.label :login
+      %td= f.text_field :login, :size => 20
+      %td= f.label :email
+      %td= f.text_field :email, :size => 20
+
+    %tr
+      %td= f.label :firstname
+      %td= f.text_field :firstname, :size => 20
+      %td= f.label :lastname
+      %td= f.text_field :lastname, :size => 20
+
+    %tr
+      %td= f.label :password
+      %td= f.password_field :password, :size => 20
+
+    %tr
+      %td= f.label :password_confirmation
+      %td= f.password_field :password_confirmation, :size => 20
+
+    %tr
+      %td= f.submit "Valider"

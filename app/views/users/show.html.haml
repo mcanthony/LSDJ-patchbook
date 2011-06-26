@@ -1,0 +1,21 @@
+%p
+  Pseudo:
+  = @user.login
+%p
+  Email:
+  = mail_to @user.email
+- if !@user.firstname.blank?
+  %p
+    Prénom:
+    = @user.firstname
+- if !@user.lastname.blank?
+  %p
+    Nom:
+    = @user.lastname
+
+- if current_user == @user
+  %br
+  %small
+    = link_to "Editer mon profil", edit_user_path(@user)
+    %br
+    = link_to "Supprimer mon compte", @user, :confirm => 'Etes vous sûr?', :method => :delete
