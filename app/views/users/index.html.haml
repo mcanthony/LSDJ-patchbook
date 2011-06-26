@@ -1,0 +1,6 @@
+%h3
+  Contributors
+- if !@users.empty?
+  %ul
+    - @users.each do |user|
+      %li.small= link_to user.login, user
