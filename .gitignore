@@ -1,0 +1,13 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+*.DS_Store
+config/settings.yml
+coverage
+tmp
+config/devs.yml
+AUTO_CHANGELOG.md
+public/stylesheets/application.css
+config/database.yml
+public/system/
