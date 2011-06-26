@@ -13,4 +13,4 @@
   %p
     = f.label :instrument_name
     = f.text_field :instrument_name, :maxlength => 5, :size => 5
-  = render :partial => "form_#{@instrument.type.downcase}"
+  = render :partial => "form_#{@instrument.type.downcase}", :locals => { :f => f }

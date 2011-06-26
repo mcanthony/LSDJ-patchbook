@@ -1,3 +1,38 @@
 %p
   = label_tag :type
   = @instrument.type
+%p
+  = f.label :envelope
+  = f.text_field :envelope, :value => "A8", :size => 2, :maxlength => 2
+%p
+  = f.label :wave
+  = f.select :wave, [["12.5%", "12.5"], ["25%", "25"], ["50%", "50"], ["75%", "75"]], :selected => "50"
+%p
+  = f.label :output
+  = f.select :output, ["LR", "L", "R"], :selected => "LR"
+%p
+  = f.label :length
+%p
+  = f.label :sweep
+%p
+  = f.label :vib_type
+%p
+  = f.label :pu2_tune
+%p
+  = f.label :pu_fine
+%p
+  = f.label :automate
+%p
+  = f.label :table
+%br
+%br
+%p
+  = f.label :description
+%p
+  = f.text_area :description, :rows => 5, :cols => 70
+%p
+  = f.label :share
+  = f.check_box :share
+%p
+  = f.submit "Save"
+  = link_to "Cancel", root_url
