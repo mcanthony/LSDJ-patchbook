@@ -11,3 +11,7 @@ AUTO_CHANGELOG.md
 public/stylesheets/application.css
 config/database.yml
 public/system/
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
