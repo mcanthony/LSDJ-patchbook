@@ -10,7 +10,46 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110626220234) do
+ActiveRecord::Schema.define(:version => 20110626222254) do
+
+  create_table "instruments", :force => true do |t|
+    t.string   "type",                                 :null => false
+    t.string   "author"
+    t.boolean  "share",              :default => true, :null => false
+    t.text     "description"
+    t.string   "name"
+    t.string   "envelope"
+    t.string   "wave"
+    t.string   "output"
+    t.string   "length"
+    t.string   "shape"
+    t.string   "sweep"
+    t.string   "vib_type"
+    t.string   "pu2_tune"
+    t.string   "pu_fine"
+    t.string   "automate"
+    t.string   "table"
+    t.string   "volume"
+    t.string   "play"
+    t.string   "repeat"
+    t.string   "speed"
+    t.string   "synth_wave"
+    t.string   "synth_filter"
+    t.string   "synth_q"
+    t.string   "synth_dist"
+    t.string   "synth_phase"
+    t.string   "synth_start_volume"
+    t.string   "synth_start_cutoff"
+    t.string   "synth_start_phase"
+    t.string   "synth_start_vshift"
+    t.string   "synth_end_volume"
+    t.string   "synth_end_cutoff"
+    t.string   "synth_end_phase"
+    t.string   "synth_end_vshift"
+    t.string   "table_content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "slugs", :force => true do |t|
     t.string   "name"

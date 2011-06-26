@@ -6,6 +6,14 @@ class ApplicationController < ActionController::Base
   def index
   end
 
+  ### BEFORE FILTERS ###
+  def require_user
+    if !current_user
+      flash[:notice] = "Please log-in!"
+      redirect_to root_url
+    end
+  end
+
   private
   def current_user_session
     return @current_user_session if defined?(@current_user_session)

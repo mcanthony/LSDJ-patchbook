@@ -33,5 +33,9 @@
     #content
       = yield
     %footer
-      Powered by:
-      = link_to "LSDJ Patch Book", "https://github.com/rhaamo/LSDJ-patchbook"
+      #left
+        - if current_user
+          = link_to "[+] New instrument", new_instrument_path
+      #right
+        Powered by:
+        = link_to "LSDJ Patch Book", "https://github.com/rhaamo/LSDJ-patchbook"
