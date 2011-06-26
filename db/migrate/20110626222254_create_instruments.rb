@@ -4,6 +4,7 @@ class CreateInstruments < ActiveRecord::Migration
       t.string :type, :null => false # WAVE PULSE NOISE
       t.string :author, :null => true
       t.boolean :share, :null => false, :default => 1
+      t.text :description
 
       t.string :name
       t.string :envelope
