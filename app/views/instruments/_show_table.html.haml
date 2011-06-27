@@ -4,15 +4,15 @@
   %table
     %tr
       %th &nbsp;
-      %th VOL
-      %th TSP
-      %th CMD
-      %th CMD
+      %th.small{:align => :left} VOL
+      %th.small{:align => :left} TSP
+      %th.small{:align => :left} CMD
+      %th.small{:align => :left} CMD
     %tr
       - @instrument.table_row.each do |trow|
         %tr
-          %td= trow.row
-          %td= trow.vol
-          %td= trow.tsp
-          %td= trow.cmd1
-          %td= trow.cmd2
+          %td.small= trow.row
+          %td.small= trow.vol
+          %td.small= trow.tsp
+          %td.small= trow.cmd1
+          %td.small= trow.cmd2
