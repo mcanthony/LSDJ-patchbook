@@ -1,0 +1,18 @@
+#INST_Table_Show
+  .small.bold
+    Table
+  %table
+    %tr
+      %th &nbsp;
+      %th VOL
+      %th TSP
+      %th CMD
+      %th CMD
+    %tr
+      - @instrument.table_row.each do |trow|
+        %tr
+          %td= trow.row
+          %td= trow.vol
+          %td= trow.tsp
+          %td= trow.cmd1
+          %td= trow.cmd2

@@ -1,0 +1,16 @@
+%h3
+  Instruments
+
+%table
+  %tr
+    %th{:width => "50%", :align => :left}
+      %span.small Name
+    %th{:width => "50%", :align => :left}
+      %span.small Type
+    %th{:width => "50%", :align => :left}
+      %span.small Author
+  - @instruments.each do |instr|
+    %tr
+      %td{:width => "50%"}= link_to instr.name, instr
+      %td{:width => "50%"}= instr.type
+      %td{:width => "50%"}= instr.author

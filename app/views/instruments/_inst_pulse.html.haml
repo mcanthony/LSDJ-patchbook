@@ -11,43 +11,47 @@
 
 %br
 
-%p
-  NAME
-  = @instrument.instrument_name
-%p
-  TYPE
-  = @instrument.type
-%p
-  ENVELOPE
-  = @instrument.envelope
-%p
-  WAVE
-  = @instrument.wave
-%p
-  OUTPUT
-  = @instrument.output
-%p
-  LENGTH
-  = @instrument.length
-%p
-  SWEEP
-  = @instrument.sweep
-%p
-  VIB.TYPE
-  = @instrument.vib_type
-%p
-  PU2 TUNE
-  = @instrument.pu2_tune
-%p
-  PU FINE
-  = @instrument.pu_fine
-%p
-  AUTOMATE
-  = @instrument.automate
-%p
-  TABLE
-  = @instrument.table
-%br
+%table.instrument_properties
+  %tr
+    %td{:width => "120px"} NAME
+    %td= @instrument.instrument_name
+  %tr
+    %td TYPE
+    %td= @instrument.type
+  %tr
+    %td ENVELOPE
+    %td= @instrument.envelope
+  %tr
+    %td WAVE
+    %td= @instrument.wave
+  %tr
+    %td OUTPUT
+    %td= @instrument.output
+  %tr
+    %td LENGTH
+    %td= @instrument.length
+  %tr
+    %td SWEEP
+    %td= @instrument.sweep
+  %tr
+    %td VIB.TYPE
+    %td= @instrument.vib_type
+  %tr
+    %td PU2 TUNE
+    %td= @instrument.pu2_tune
+  %tr
+    %td PU FINE
+    %td= @instrument.pu_fine
+  %tr
+    %td AUTOMATE
+    %td= @instrument.automate
+  %tr
+    %td TABLE
+    %td= @instrument.table
+
+= render :partial => 'show_table'
+
+%br{:style => "clear: both;"}
 %p
   Description:
   = @instrument.description
