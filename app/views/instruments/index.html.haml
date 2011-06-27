@@ -12,8 +12,8 @@
   - @instruments.each do |instr|
     %tr
       %td.small{:width => "50%"}= link_to instr.name, instr
-      %td.small{:width => "50%"}= instr.type
-      %td.small{:width => "50%"}= instr.author
+      %td.small{:width => "50%"}= link_to instr.type, types_path(instr.type)
+      %td.small{:width => "50%"}= link_to instr.author, author_path(instr.author)
 
 %br
 = paginate @instruments

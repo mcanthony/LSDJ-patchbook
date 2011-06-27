@@ -21,8 +21,8 @@
   - @authored.each do |ins|
     %tr
       %td= link_to ins.name, ins
-      %td= ins.type
-      %td= ins.author
+      %td= link_to ins.type, types_path(ins.type)
+      %td= link_to ins.author, author_path(ins.author)
 %h4
   Submissions
 %table
@@ -33,5 +33,5 @@
   - @submitted.each do |ins|
     %tr
       %td= link_to ins.name, ins
-      %td= ins.type
-      %td= ins.author
+      %td= link_to ins.type, types_path(ins.type)
+      %td= link_to ins.author, author_path(ins.author)

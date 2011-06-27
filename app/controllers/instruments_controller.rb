@@ -6,6 +6,12 @@ class InstrumentsController < ApplicationController
     @app_title = "Instruments - LSDJ Patch Book"
   end
 
+  def by_type
+    @instruments = Instrument.page(params[:page]).where(:type => params[:id].upcase)
+    @app_title = "Instruments by type #{params[:id]} - LSDJ Patch Book"
+    render 'index'
+  end
+
   def new
     @instrument = Instrument.new
     @instrument.type = params[:type].blank? ? "PULSE" : params[:type]
