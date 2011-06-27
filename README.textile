@@ -1,0 +1,35 @@
+h1. LSDJ Patch Book
+
+This project is a Patch Book for the LSDJ tracker.
+
+h2. Features
+
+Current features are:
+- Contributors (which submit the patch)
+- Authors (contributors can specify the original author)
+- Instrument listing
+- Instrument tagging and find by tag
+- Sample uploading, playing is done using an <audio> tag, downloading the sample is also possible!
+- Raw export in plain text : if you want to print it or avoid web garbage :-)
+- Zero javascript used for validations! All are done server-side, better :-)
+
+Planned:
+- Find instruments by type
+- Search into instruments names
+- RSS feeds
+- Banks ?
+
+h2. Idea based on
+
+This LSDJ Patch Book is inspired, and based (for UI inspiration) on the "original"
+LSDJ Patch Book, written in PHP, available at the following address: https://github.com/goatslacker/LSDJ-Patch-Book
+
+h2. Links
+
+- "Original" LSDJ Patch Book in PHP : https://github.com/goatslacker/LSDJ-Patch-Book
+- LSDJ web page : http://littlesounddj.com/lsd/
+
+h2. Contact
+
+Problem ? Want to deploy your own LSDJ Patch Book ? No problem! Just contact me:
+- rhaamo -at- rhaamo -dot- li
