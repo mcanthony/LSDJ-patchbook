@@ -81,7 +81,7 @@ class InstrumentsController < ApplicationController
       table_row.instrument = @instrument
     end
     if @instrument.save
-      flash[:notice] = "Instrument créer avec succès."
+      flash[:notice] = "Instrument created."
       redirect_to @instrument
     else
       render :action => 'new'
@@ -102,7 +102,7 @@ class InstrumentsController < ApplicationController
   def destroy
     @instrument = Instrument.find(params[:id])
     @instrument.destroy
-    flash[:notice] = "suprimé"
+    flash[:notice] = "Instrument removed."
     redirect_to root_url
   end
 

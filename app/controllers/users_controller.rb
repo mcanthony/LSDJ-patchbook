@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @app_title = "New user - LSDJ Patch Book"
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Utilisateur créé avec succès."
+      flash[:notice] = "User created."
       redirect_to @user
     else
       render :action => 'new'
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     @app_title = "Update user - LSDJ Patch Book"
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Utilisateur mis à jour avec succès."
+      flash[:notice] = "User updated."
       redirect_to @user
     else
       render :action => 'edit'
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:notice] = "Utilisateur détruit avec succès."
+    flash[:notice] = "User removed."
     redirect_to root_url
   end
 

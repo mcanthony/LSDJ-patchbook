@@ -1,6 +1,6 @@
 = form_for @user_session do |f|
   %p
-    = f.error_messages
+    = f.error_messages :header_tag => :h3
   %p
     = f.label :login
     %br

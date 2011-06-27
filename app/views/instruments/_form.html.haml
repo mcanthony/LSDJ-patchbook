@@ -1,6 +1,7 @@
 = form_for @instrument, :html => { :multipart => true } do |f|
   %p
-    = f.error_messages
+    = f.error_messages :header_tag => :h3
+  %br
   %table
     %tr
       %td= f.label :type
