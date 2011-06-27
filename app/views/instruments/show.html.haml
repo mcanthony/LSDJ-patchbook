@@ -1,1 +1,24 @@
 = render :partial => "inst_#{@instrument.type.downcase}"
+%br
+%br
+- if current_user
+  = form_for [@instrument, @comment] do |f|
+    %p.verysmall.bold= f.label :comment
+    %p= f.text_area :comment, :rows => 5, :cols => 80
+    %p= f.submit "Submit"
+%br
+%br
+- @comments.each do |comment|
+  .comment_block
+    By:
+    = link_to comment.user.login, comment.user
+    %br
+    At:
+    = comment.created_at
+    %br
+    Comment:
+    %br
+    %pre= comment.comment
+  %br
+%br
+= paginate @comments

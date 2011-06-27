@@ -46,6 +46,8 @@ class InstrumentsController < ApplicationController
 
   def show
     @instrument = Instrument.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.page(params[:page])
   end
 
   def edit

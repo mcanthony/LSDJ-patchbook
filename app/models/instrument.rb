@@ -3,6 +3,7 @@ class Instrument < ActiveRecord::Base
   default_scope :order => 'created_at DESC'
   belongs_to :user
   has_many :table_row
+  has_many :comment
   accepts_nested_attributes_for :table_row, :allow_destroy => false
   paginates_per 20
   has_friendly_id :name, :use_slug => true

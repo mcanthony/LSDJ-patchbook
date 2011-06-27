@@ -2,6 +2,7 @@ LsdjPatchbook::Application.routes.draw do
   resources :users, :user_sessions
   resources :instruments do
     get "raw"
+    resource :comments
   end
   resources :tags, :authors
 
