@@ -1,5 +1,6 @@
 .right_sidebar
-  %h3
-    Tags
-  - @instrument.tags.each do |tag|
-    = link_to tag
+  - if !@instrument.tags.empty?
+    %h3
+      Tags
+    - @instrument.tags.each do |tag|
+      = link_to tag, tag_path(tag.name)
