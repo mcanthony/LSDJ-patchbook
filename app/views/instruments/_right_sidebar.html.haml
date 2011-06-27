@@ -4,3 +4,9 @@
       Tags
     - @instrument.tags.each do |tag|
       = link_to tag, tag_path(tag.name)
+
+  %br
+  %br
+  %h5
+    &raquo;
+    = link_to "Export to plain-text", instrument_raw_path(@instrument)

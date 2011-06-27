@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class InstrumentsController < ApplicationController
-  before_filter :require_user, :except => [:index, :show]
+  before_filter :require_user, :except => [:index, :show, :raw]
   def index
     @instruments = Instrument.page(params[:page])
   end
@@ -82,6 +82,12 @@ class InstrumentsController < ApplicationController
     @instrument.destroy
     flash[:notice] = "suprimé"
     redirect_to root_url
+  end
+
+  def raw
+    @instrument = Instrument.find(params[:instrument_id])
+    response.headers["Content-Type"] = "text/plain"
+    render "raw_instr_#{@instrument.type.downcase}".to_s, :content_type => "text/plain", :layout => false
   end
 
 end

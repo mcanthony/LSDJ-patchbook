@@ -1,0 +1,23 @@
+Exported from <%= instrument_url(@instrument) %>
+
+Created on: <%= @instrument.created_at %>
+By: <%= @instrument.user.login %>
+Original author: <%= @instrument.author %>
+
+
+NAME      <%= @instrument.name %>
+TYPE      <%= @instrument.type %>
+ENVELOPE  <%= @instrument.envelope %>
+OUTPUT    <%= @instrument.output %>
+LENGTH    <%= @instrument.length %>
+SHAPE     <%= @instrument.shape %>
+AUTOMATE  <%= @instrument.automate %>
+TABLE     <%= @instrument.table %>
+
+  TABLE:
+  ___| VOL | TSP |  CMD  |  CMD  |
+<%- @instrument.table_row.each do |trow| %>
+   <%- spaces1 = 6 - trow.cmd1.size %>
+   <%- spaces2 = 6 - trow.cmd2.size %>
+   <%= trow.row %> | <%= trow.vol %>  | <%= trow.tsp %>  | <%= trow.cmd1 %><%= " "*spaces1 %>| <%= trow.cmd2 %><%= " "*spaces2 %>|
+<% end %>
