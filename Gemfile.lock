@@ -92,8 +92,6 @@ GEM
       activesupport (= 3.0.9)
       bundler (~> 1.0)
       railties (= 3.0.9)
-    rails_config (0.2.4)
-      activesupport (>= 3.0)
     railties (3.0.9)
       actionpack (= 3.0.9)
       activesupport (= 3.0.9)
@@ -157,7 +155,6 @@ DEPENDENCIES
   nested_form!
   railroady
   rails (= 3.0.9)
-  rails_config
   rspec-rails (= 2.0.0.beta.12)
   ruby-debug19
   sass

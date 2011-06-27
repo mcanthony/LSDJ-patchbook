@@ -19,7 +19,6 @@ end
 gem "haml"
 gem "sass"
 gem "authlogic"
-gem "rails_config"
 gem "jquery-rails"
 gem "friendly_id", "~> 3.2"
 gem "kaminari" # pagination
