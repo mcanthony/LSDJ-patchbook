@@ -36,7 +36,7 @@ class InstrumentsController < ApplicationController
     @instrument = Instrument.new(params[:instrument])
     @instrument.user = current_user
     @instrument.author = current_user.login if @instrument.author.blank?
-    @instrument.table_rows.each do |table_row|
+    @instrument.table_row.each do |table_row|
       table_row.instrument = @instrument
     end
     if @instrument.save
