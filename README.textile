@@ -17,7 +17,6 @@ Current features are:
 
 Planned:
 - Search into instruments names
-- Banks ?
 
 h2. Idea based on
 
