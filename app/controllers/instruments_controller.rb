@@ -49,7 +49,7 @@ class InstrumentsController < ApplicationController
   def show
     @instrument = Instrument.find(params[:id])
     @comment = Comment.new
-    @comments = Comment.page(params[:page])
+    @comments = @instrument.comment.page(params[:page])
     @app_title = "#{@instrument.author} - #{@instrument.name} - #{@instrument.type} - LSDJ Patch Book"
   end
 
