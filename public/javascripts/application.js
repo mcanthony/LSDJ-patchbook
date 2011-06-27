@@ -3,5 +3,5 @@
 
 // Reload page with selected instrument
 function changeINStype(inst) {
-    location.href=location.pathname+'?type='+inst;
+    location.href='/instruments/new?type='+inst;
 }

@@ -52,5 +52,27 @@ class Instrument < ActiveRecord::Base
     self.sweep.upcase! if !self.sweep.blank?
     self.pu2_tune.upcase! if !self.pu2_tune.blank?
     self.pu_fine.upcase! if !self.pu_fine.blank?
+    self.play.upcase! if !self.play.blank?
+    self.wave.upcase! if !self.wave.blank?
+    self.synth_wave.upcase! if !self.synth_wave.blank?
+    self.synth_phase.upcase! if !self.synth_phase.blank?
+    self.synth_start_volume.upcase! if !self.synth_start_volume.blank?
+    self.synth_start_cutoff.upcase! if !self.synth_start_cutoff.blank?
+    self.synth_start_phase.upcase! if !self.synth_start_phase.blank?
+    self.synth_start_vshift.upcase! if !self.synth_start_vshift.blank?
+    self.synth_end_volume.upcase! if !self.synth_end_volume.blank?
+    self.synth_end_cutoff.upcase! if !self.synth_end_cutoff.blank?
+    self.synth_end_phase.upcase! if !self.synth_end_phase.blank?
+    self.synth_end_vshift.upcase! if !self.synth_end_vshift.blank?
+    self.output.upcase! if !self.output.blank?
+    self.synth_filter.upcase! if !self.synth_filter.blank?
+    self.synth_q.upcase! if !self.synth_q.blank?
+    self.synth_dist.upcase! if !self.synth_dist.blank?
+    self.repeat.upcase! if !self.repeat.blank?
+    self.speed.upcase! if !self.speed.blank?
+    self.shape.upcase! if !self.shape.blank?
+    self.vib_type.upcase! if !self.vib_type.blank?
+    self.automate.upcase! if !self.automate.blank?
+    self.table.upcase! if !self.table.blank?
   end
 end
