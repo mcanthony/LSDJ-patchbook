@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110627055751) do
+ActiveRecord::Schema.define(:version => 20110627083619) do
 
   create_table "instruments", :force => true do |t|
     t.string   "type",                                              :null => false
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(:version => 20110627055751) do
     t.string   "synth_end_cutoff"
     t.string   "synth_end_phase"
     t.string   "synth_end_vshift"
-    t.string   "table_content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "instrument_name",    :limit => 5
@@ -64,6 +63,17 @@ ActiveRecord::Schema.define(:version => 20110627055751) do
 
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
+  create_table "table_rows", :force => true do |t|
+    t.string   "row",           :limit => 1
+    t.string   "vol",           :limit => 2, :default => "00"
+    t.string   "tsp",           :limit => 2, :default => "00"
+    t.string   "cmd1",          :limit => 3, :default => "-00"
+    t.string   "cmd2",          :limit => 3, :default => "-00"
+    t.integer  "instrument_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                               :null => false

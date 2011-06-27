@@ -24,6 +24,7 @@ gem "jquery-rails"
 gem "friendly_id", "~> 3.2"
 gem "kaminari" # pagination
 gem "carrierwave", :git => 'git://github.com/jnicklas/carrierwave.git', :branch => 'master'
+gem "nested_form", :git => "git://github.com/madebydna/nested_form.git"
 
 # test stuff
 group :test do

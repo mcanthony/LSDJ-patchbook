@@ -2,6 +2,8 @@ class Instrument < ActiveRecord::Base
   set_inheritance_column :ruby_type
   default_scope :order => 'created_at DESC'
   belongs_to :user
+  has_many :table_row
+  accepts_nested_attributes_for :table_row, :allow_destroy => false
   paginates_per 10
   has_friendly_id :name, :use_slug => true
 

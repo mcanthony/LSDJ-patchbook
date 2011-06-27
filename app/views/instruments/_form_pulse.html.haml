@@ -1,46 +1,49 @@
-%p
-  = label_tag :type
-  = @instrument.type
-= f.hidden_field :type, :value => @instrument.type
-%p
-  = f.label :envelope
-  = f.text_field :envelope, :size => 2, :maxlength => 2
-%p
-  = f.label :wave
-  = f.select :wave, [["12.5%", "12.5"], ["25%", "25"], ["50%", "50"], ["75%", "75"]]
-%p
-  = f.label :output
-  = f.select :output, ["LR", "L", "R"]
-%p
-  = f.label :length
-  = f.text_field :length,  :size => 4, :maxlength => 5
-%p
-  = f.label :sweep
-  = f.text_field :sweep, :size => 2, :maxlength => 2
-%p
-  = f.label :vib_type
-  = f.select :vib_type, ["HF", "SIN", "TRI", "SQR"]
-%p
-  = f.label :pu2_tune
-  = f.text_field :pu2_tune, :size => 2, :maxlength => 2
-%p
-  = f.label :pu_fine
-  = f.text_field :pu_fine, :size => 1, :maxlength => 1
-%p
-  = f.label :automate
-  = f.select :automate, ["ON", "OFF"]
-%p
-  = f.label :table
-  = f.select :table, ["ON", "OFF"]
-%br
-%br
+%table.instrument_properties
+  %tr
+    %td= label_tag :type
+    %td= @instrument.type
+    = f.hidden_field :type, :value => @instrument.type
+  %tr
+    %td= f.label :envelope
+    %td= f.text_field :envelope, :size => 2, :maxlength => 2
+  %tr
+    %td= f.label :wave
+    %td= f.select :wave, [["12.5%", "12.5"], ["25%", "25"], ["50%", "50"], ["75%", "75"]]
+  %tr
+    %td= f.label :output
+    %td= f.select :output, ["LR", "L", "R"]
+  %tr
+    %td= f.label :length
+    %td= f.text_field :length,  :size => 4, :maxlength => 5
+  %tr
+    %td= f.label :sweep
+    %td= f.text_field :sweep, :size => 2, :maxlength => 2
+  %tr
+    %td= f.label :vib_type
+    %td= f.select :vib_type, ["HF", "SIN", "TRI", "SQR"]
+  %tr
+    %td= f.label :pu2_tune
+    %td= f.text_field :pu2_tune, :size => 2, :maxlength => 2
+  %tr
+    %td= f.label :pu_fine
+    %td= f.text_field :pu_fine, :size => 1, :maxlength => 1
+  %tr
+    %td= f.label :automate
+    %td= f.select :automate, ["ON", "OFF"]
+  %tr
+    %td= f.label :table
+    %td= f.select :table, ["ON", "OFF"], {}, {:onchange => 'if (this.options[this.selectedIndex].value == "ON") { $("#INST_Table").toggle();} else {$("#INST_Table").toggle();}'}
+  %tr
+    %td= f.label :share
+    %td= f.check_box :share
+
+= render :partial => "table", :locals => { :f => f }
+
+%br{:style => "clear: both;"}
 %p
   = f.label :description
-%p
+  %br
   = f.text_area :description, :rows => 5, :cols => 70
-%p
-  = f.label :share
-  = f.check_box :share
 %p
   = f.submit "Save"
   = link_to "Cancel", root_url

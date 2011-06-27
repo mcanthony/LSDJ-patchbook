@@ -6,6 +6,12 @@ GIT
     carrierwave (0.5.4)
       activesupport (~> 3.0)
 
+GIT
+  remote: git://github.com/madebydna/nested_form.git
+  revision: bce54d4741ef698de7bcdc97cb86010812dbf81f
+  specs:
+    nested_form (0.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -146,6 +152,7 @@ DEPENDENCIES
   haml
   jquery-rails
   kaminari
+  nested_form!
   railroady
   rails (= 3.0.9)
   rails_config
