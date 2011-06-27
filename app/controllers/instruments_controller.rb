@@ -11,10 +11,24 @@ class InstrumentsController < ApplicationController
     @instrument.volume = "3"
     @instrument.play = "ONCE"
     @instrument.envelope = "A8"
-    @instrument.wave = "50"
+    @instrument.wave = "50" if (@instrument.type == "PULSE")
+    @instrument.synth_wave = "SIN" if (@instrument.type == "WAVE")
+    @instrument.synth_phase = "NORMAL"
+    @instrument.synth_start_volume = "10"
+    @instrument.synth_start_cutoff = "FF"
+    @instrument.synth_start_phase = "00"
+    @instrument.synth_start_vshift = "00"
+    @instrument.synth_end_volume = "10"
+    @instrument.synth_end_cutoff = "FF"
+    @instrument.synth_end_phase = "00"
+    @instrument.synth_end_vshift = "00"
     @instrument.output = "LR"
     @instrument.length = "UNLIM" if (@instrument.type == "PULSE")
+    @instrument.length = "UNLIM" if (@instrument.type == "NOISE")
     @instrument.length = "F" if (@instrument.type == "WAVE")
+    @instrument.synth_filter = "LOWP"
+    @instrument.synth_q = "0"
+    @instrument.synth_dist = "CLIP"
     @instrument.repeat = "0"
     @instrument.speed = "4"
     @instrument.shape = "FF"

@@ -11,10 +11,11 @@ class Instrument < ActiveRecord::Base
 
   validates_presence_of :name
   validates_length_of :instrument_name, :maximum => 5
-  validates_format_of :envelope, :with => /^[A-F0-9]{2}$/ # Hex check, need to be UPCASE (set_upcase_fields)
+  validates_format_of :envelope, :with => /^[A-F0-9]{2}$/, :if => Proc.new { |rec| rec.type == "PULSE" }
   validates_inclusion_of :wave, :in => ["12.5", "25", "50", "75"], :if => Proc.new { |rec| rec.type == "PULSE" }
   validates_inclusion_of :output, :in => ["LR", "L", "R"]
-  validates :length, :presence => true, :special_hex => true
+  validates :length, :presence => true, :special_hex => true, :if => Proc.new { |rec| rec.type == "PULSE" }
+  validates_format_of :length, :with => /^[0-9A-F]$/, :if => Proc.new { |rec| rec.type == "WAVE" }
   validates_format_of :sweep, :with => /^[A-F0-9]{2}$/, :if => Proc.new { |rec| rec.type == "PULSE" }
   validates_inclusion_of :vib_type, :in => ["HF", "SIN", "TRI", "SQR"], :if => Proc.new { |rec| rec.type == "PULSE" }
   validates_format_of :pu2_tune, :with => /^[A-F0-9]{2}$/, :if => Proc.new { |rec| rec.type == "PULSE" }
@@ -23,6 +24,25 @@ class Instrument < ActiveRecord::Base
   validates_inclusion_of :table, :in => ["ON", "OFF"]
   validates_format_of :speed, :with => /^[0-9A-F]$/, :if => Proc.new { |rec| rec.type == "WAVE" }
   validates_format_of :repeat, :with => /^[0-9A-F]$/, :if => Proc.new { |rec| rec.type == "WAVE" }
+  validates_format_of :synth_q, :with => /^[0-9A-F]$/, :if => Proc.new { |rec| rec.type == "WAVE" }
+  validates_inclusion_of :synth_dist, :in => ["CLIP", "WRAP"], :if => Proc.new { |rec| rec.type == "WAVE" }
+  validates_inclusion_of :synth_phase, :in => ["NORMAL", "RESYNC", "RESYNC2"], :if => Proc.new { |rec| rec.type == "WAVE" }
+  validates_length_of :synth_start_volume, :maximum => 2
+  validates_format_of :synth_start_volume, :with => /^[A-F0-9]{2}$/, :if => Proc.new { |rec| rec.type == "WAVE" }
+  validates_length_of :synth_start_cutoff, :maximum => 2
+  validates_format_of :synth_start_cutoff, :with => /^[A-F0-9]{2}$/, :if => Proc.new { |rec| rec.type == "WAVE" }
+  validates_length_of :synth_start_phase, :maximum => 2
+  validates :synth_start_phase, :presence => true, :special_hex => true, :if => Proc.new { |rec| rec.type == "WAVE" }
+  validates_length_of :synth_start_vshift, :maximum => 2
+  validates_format_of :synth_start_vshift, :with => /^[A-F0-9]{2}$/, :if => Proc.new { |rec| rec.type == "WAVE" }
+  validates_length_of :synth_end_volume, :maximum => 2
+  validates_format_of :synth_end_volume, :with => /^[A-F0-9]{2}$/, :if => Proc.new { |rec| rec.type == "WAVE" }
+  validates_length_of :synth_end_cutoff, :maximum => 2
+  validates_format_of :synth_end_cutoff, :with => /^[A-F0-9]{2}$/, :if => Proc.new { |rec| rec.type == "WAVE" }
+  validates_length_of :synth_end_phase, :maximum => 2
+  validates :synth_end_phase, :presence => true, :special_hex => true, :if => Proc.new { |rec| rec.type == "WAVE" }
+  validates_length_of :synth_end_vshift, :maximum => 2
+  validates_format_of :synth_end_vshift, :with => /^[A-F0-9]{2}$/, :if => Proc.new { |rec| rec.type == "WAVE" }
 
 
   def set_upcase_fields

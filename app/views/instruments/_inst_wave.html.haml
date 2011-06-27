@@ -1,0 +1,110 @@
+%h3= @instrument.name
+%span.verysmall.bold
+  %p
+    = @instrument.created_at
+  %p
+    Submitted by:
+    = link_to @instrument.user.login, @instrument.user
+  %p
+    Original author:
+    = @instrument.author
+
+%br
+
+%table.instrument_properties
+  %tr
+    %td{:width => "120px"} NAME
+    %td.row_value{:width => "50px"}= @instrument.instrument_name
+  %tr
+    %td TYPE
+    %td.row_value= @instrument.type
+  %tr{:height => "20px"}
+  %tr
+    %td VOLUME
+    %td.row_value= @instrument.volume
+  %tr
+    %td OUTPUT
+    %td.row_value= @instrument.output
+  %tr
+    %td VIB.TYPE
+    %td.row_value= @instrument.vib_type
+  %tr{:height => "20px"}
+  %tr
+    %td SYNTH
+  %tr
+    %td PLAY
+    %td.row_value= @instrument.play
+  %tr
+    %td LENGTH
+    %td.row_value= @instrument.length
+  %tr
+    %td REPEAT
+    %td.row_value= @instrument.length
+  %tr
+    %td SPEED
+    %td.row_value= @instrument.length
+  %tr{:height => "20px"}
+  %tr
+    %td AUTOMATE
+    %td.row_value= @instrument.automate
+  %tr
+    %td TABLE
+    %td.row_value= @instrument.table
+
+%table.wave_synth
+  %tr
+    %td.small.bold SYNTH
+  %tr
+    %td WAVE
+    %td.row_value= @instrument.synth_wave
+  %tr
+    %td FILTER
+    %td.row_value= @instrument.synth_filter
+  %tr
+    %td Q
+    %td.row_value= @instrument.synth_q
+  %tr
+    %td DIST
+    %td.row_value= @instrument.synth_dist
+  %tr
+    %td PHASE
+    %td.row_value= @instrument.synth_phase
+  %tr{:height => "20px"}
+  %tr
+    %td START:
+  %tr
+    %td VOLUME
+    %td.row_value= @instrument.synth_start_volume
+  %tr
+    %td CUTOFF
+    %td.row_value= @instrument.synth_start_cutoff
+  %tr
+    %td PHASE
+    %td.row_value= @instrument.synth_start_phase
+  %tr
+    %td VSHIFT
+    %td.row_value= @instrument.synth_start_vshift
+  %tr{:height => "20px"}
+  %tr
+    %td END:
+  %tr
+    %td VOLUME
+    %td.row_value= @instrument.synth_end_volume
+  %tr
+    %td CUTOFF
+    %td.row_value= @instrument.synth_end_cutoff
+  %tr
+    %td PHASE
+    %td.row_value= @instrument.synth_end_phase
+  %tr
+    %td VSHIFT
+    %td.row_value= @instrument.synth_end_vshift
+
+- if @instrument.table == "ON"
+  = render :partial => 'show_table'
+
+%br{:style => "clear: both;"}
+%br
+%p
+  Description:
+  = @instrument.description

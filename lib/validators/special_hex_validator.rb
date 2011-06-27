@@ -13,5 +13,10 @@ class SpecialHexValidator < ActiveModel::EachValidator
         record.errors[attribute] << "invalid hex"
       end
     end
+    if (attribute == :synth_start_phase) || (attribute == :synth_end_phase)
+      if !(value.upcase =~ /^[0-1][0-9A-F]$/)
+        record.errors[attribute] << "invalid hex"
+      end
+    end
   end
 end

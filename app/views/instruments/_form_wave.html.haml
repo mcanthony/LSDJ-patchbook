@@ -37,6 +37,54 @@
     %td= f.label :share
     %td= f.check_box :share
 
+%table.wave_synth
+  %tr
+    %td.small.bold SYNTH
+  %tr
+    %td= f.label :synth_wave
+    %td= f.select :synth_wave, ["SIN", "SQR", "TRI"]
+  %tr
+    %td= f.label :synth_filter
+    %td= f.select :synth_filter, ["LOWP", "HIGHP", "BANDP", "ALLP"]
+  %tr
+    %td= f.label :synth_q
+    %td= f.text_field :synth_q, :size => 4, :maxlength => 1
+  %tr
+    %td= f.label :synth_dist
+    %td= f.select :synth_dist, ["CLIP", "WRAP"]
+  %tr
+    %td= f.label :synth_phase
+    %td= f.select :synth_phase, ["NORMAL", "RESYNC", "RESYNC2"]
+  %tr
+    %td START:
+  %tr
+    %td= f.label :synth_start_volume
+    %td= f.text_field :synth_start_volume, :size => 4, :maxlength => 2
+  %tr
+    %td= f.label :synth_start_cutoff
+    %td= f.text_field :synth_start_cutoff, :size => 4, :maxlength => 2
+  %tr
+    %td= f.label :synth_start_phase
+    %td= f.text_field :synth_start_phase, :size => 4, :maxlength => 2
+  %tr
+    %td= f.label :synth_start_vshift
+    %td= f.text_field :synth_start_vshift, :size => 4, :maxlength => 2
+  %tr
+    %td END:
+  %tr
+    %td= f.label :synth_end_volume
+    %td= f.text_field :synth_end_volume, :size => 4, :maxlength => 2
+  %tr
+    %td= f.label :synth_end_cutoff
+    %td= f.text_field :synth_end_cutoff, :size => 4, :maxlength => 2
+  %tr
+    %td= f.label :synth_end_phase
+    %td= f.text_field :synth_end_phase, :size => 4, :maxlength => 2
+  %tr
+    %td= f.label :synth_end_vshift
+    %td= f.text_field :synth_end_vshift, :size => 4, :maxlength => 2
+
+
 = render :partial => "table", :locals => { :f => f }
 
 %br{:style => "clear: both;"}
