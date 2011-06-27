@@ -1,0 +1,8 @@
+.sample_box
+  - if !@instrument.sample.url
+    No sample available :(
+  - else
+    %audio{:src => @instrument.sample.url, :controls => :controls}
+      Your browser doesn't support the audio element! :(
+    = link_to "Download", @instrument.sample.url
+    the sample file.

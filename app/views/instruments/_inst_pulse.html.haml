@@ -1,18 +1,22 @@
 %h3= @instrument.name
-%span.verysmall.bold
-  %p
-    = @instrument.created_at
-  %p
-    Submitted by:
-    = link_to @instrument.user.login, @instrument.user
-  %p
-    Original author:
-    = @instrument.author
-  - if current_user
+.infos_box
+  %span.verysmall.bold
     %p
-      = link_to "edit", edit_instrument_path(@instrument)
-      = link_to "delete", @instrument, :method => :delete, :confirm => "Are you sure?"
+      = @instrument.created_at
+    %p
+      Submitted by:
+      = link_to @instrument.user.login, @instrument.user
+    %p
+      Original author:
+      = @instrument.author
+    - if current_user
+      %p
+        = link_to "edit", edit_instrument_path(@instrument)
+        = link_to "delete", @instrument, :method => :delete, :confirm => "Are you sure?"
 
+= render :partial => "sample"
+
+%br{:style => "clear: both;"}
 %br
 
 %table.instrument_properties

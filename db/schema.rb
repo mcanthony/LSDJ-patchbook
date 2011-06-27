@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110627122353) do
+ActiveRecord::Schema.define(:version => 20110627145332) do
 
   create_table "instruments", :force => true do |t|
     t.string   "type",                                              :null => false
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20110627122353) do
     t.datetime "updated_at"
     t.string   "instrument_name",    :limit => 5
     t.integer  "user_id"
+    t.string   "sample"
   end
 
   create_table "slugs", :force => true do |t|

@@ -7,6 +7,7 @@ class Instrument < ActiveRecord::Base
   paginates_per 20
   has_friendly_id :name, :use_slug => true
   acts_as_taggable
+  mount_uploader :sample, SampleUploader
 
   before_validation :set_upcase_fields
 
@@ -44,7 +45,7 @@ class Instrument < ActiveRecord::Base
   validates :synth_end_phase, :presence => true, :special_hex => true, :if => Proc.new { |rec| rec.type == "WAVE" }
   validates_length_of :synth_end_vshift, :maximum => 2
   validates_format_of :synth_end_vshift, :with => /^[A-F0-9]{2}$/, :if => Proc.new { |rec| rec.type == "WAVE" }
-
+  validates :sample, :file_size => { :maximum => 128.kilobyte.to_i }
 
   def set_upcase_fields
     self.instrument_name.upcase! if !self.instrument_name.blank?
