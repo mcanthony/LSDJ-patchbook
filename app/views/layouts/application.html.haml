@@ -24,11 +24,11 @@
           %li= link_to "Instruments", instruments_url
           %li= link_to "Authors", authors_url
           %li= link_to "Contributors", users_url
+          %li= link_to "Tags", tags_url
           - if !current_user
-            %li= link_to "Login", login_url
             %li= link_to "Sign in", new_user_url
+            %li= link_to "Login", login_url
           - else
-            %li= link_to current_user.login, current_user
             %li= link_to "Logout", logout_url
     #content
       = yield
@@ -36,6 +36,9 @@
       #left
         - if current_user
           = link_to "[+] New instrument", new_instrument_path
+          %br
+          = link_to "Me! (#{current_user.login})", current_user
       #right
         Powered by:
         = link_to "LSDJ Patch Book", "https://github.com/rhaamo/LSDJ-patchbook"
+      %div{:style => "clear: both;"}
