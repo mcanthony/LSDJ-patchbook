@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   def index
     @instruments = Instrument.page(params[:page])
   end
+  def authors
+    @authors = Instrument.all.map{|ins| ins.author}.sort!.uniq!
+  end
 
   ### BEFORE FILTERS ###
   def require_user
