@@ -6,6 +6,7 @@ Explore & experiment.
 %br
 %h3
   Recently added Instruments
+  = link_to image_tag("feed-icon-28x28.png", :width => 20), instruments_path(:atom)
 %table
   %tr
     %th{:width => "50%", :align => :left} Name
@@ -14,7 +15,7 @@ Explore & experiment.
   - @instruments.each do |ins|
     %tr
       %td= link_to ins.name, ins
-      %td= ins.type
-      %td= ins.author
+      %td= link_to ins.type, types_path(ins.type)
+      %td= link_to ins.author, author_path(ins.author)
 %br
 = paginate @instruments

@@ -7,6 +7,10 @@ class TagsController < ApplicationController
   def show
     @app_title = "Instruments tagged with @{params[:id]} - LSDJ Patch Book"
     @instruments = Instrument.page.tagged_with(params[:id])
-    render 'instruments/index'
+    @is_filter_tag = true
+    respond_to do |format|
+      format.html { render 'instruments/index' }
+      format.atom { render 'instruments/index', :layout => false }
+    end
   end
 end

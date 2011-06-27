@@ -26,6 +26,11 @@ class UsersController < ApplicationController
     @app_title = "Contributor #{@user.login} - LSDJ Patch Book"
     @authored = @user.instruments.where(:author => @user.login)
     @submitted = @user.instruments.where('author IS NOT ?', @user.login)
+    @instruments = @user.instruments
+    respond_to do |format|
+      format.html
+      format.atom { render 'instruments/index', :layout => false }
+    end
   end
 
   def edit

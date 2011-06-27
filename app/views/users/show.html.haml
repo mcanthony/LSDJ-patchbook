@@ -1,5 +1,6 @@
 %h3
   %span.bold= @user.login
+  = link_to image_tag("feed-icon-28x28.png", :width => 20), user_path(params[:id], :atom)
 
 - if current_user == @user
   %br

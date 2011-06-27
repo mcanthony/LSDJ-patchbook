@@ -1,5 +1,13 @@
 %h3
   Instruments
+  - if @is_filter_types
+    = link_to image_tag("feed-icon-28x28.png", :width => 20), types_path(params[:id], :atom)
+  - elsif @is_filter_authors
+    = link_to image_tag("feed-icon-28x28.png", :width => 20), author_path(params[:id], :atom)
+  - elsif @is_filter_tag
+    = link_to image_tag("feed-icon-28x28.png", :width => 20), tag_path(params[:id], :atom)
+  - else
+    = link_to image_tag("feed-icon-28x28.png", :width => 20), instruments_path(:atom)
 
 %table
   %tr

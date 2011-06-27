@@ -4,12 +4,20 @@ class InstrumentsController < ApplicationController
   def index
     @instruments = Instrument.page(params[:page])
     @app_title = "Instruments - LSDJ Patch Book"
+    respond_to do |format|
+      format.html
+      format.atom { render :layout => false }
+    end
   end
 
   def by_type
     @instruments = Instrument.page(params[:page]).where(:type => params[:id].upcase)
     @app_title = "Instruments by type #{params[:id]} - LSDJ Patch Book"
-    render 'index'
+    @is_filter_types = true
+    respond_to do |format|
+      format.html { render 'index' }
+      format.atom { render :layout => false, :action => :index }
+    end
   end
 
   def new
