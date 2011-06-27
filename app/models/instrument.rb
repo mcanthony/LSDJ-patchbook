@@ -6,6 +6,7 @@ class Instrument < ActiveRecord::Base
   accepts_nested_attributes_for :table_row, :allow_destroy => false
   paginates_per 20
   has_friendly_id :name, :use_slug => true
+  acts_as_taggable
 
   before_validation :set_upcase_fields
 

@@ -1,6 +1,6 @@
 LsdjPatchbook::Application.routes.draw do
   resources :users, :user_sessions
-  resources :instruments
+  resources :instruments, :tags
 
   match "/authors", :to => "application#authors"
 
