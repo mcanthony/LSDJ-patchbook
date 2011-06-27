@@ -1,5 +1,7 @@
 = form_for @instrument do |f|
   %p
+    = f.error_messages
+  %p
     = f.label :type
     = f.select :type, ["NOISE", "PULSE", "WAVE"], {}, {:selected => @instrument.type, :onchange => 'changeINStype(this.options[this.selectedIndex].value)'}
   %p

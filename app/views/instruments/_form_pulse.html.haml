@@ -1,29 +1,37 @@
 %p
   = label_tag :type
   = @instrument.type
+= f.hidden_field :type, :value => @instrument.type
 %p
   = f.label :envelope
-  = f.text_field :envelope, :value => "A8", :size => 2, :maxlength => 2
+  = f.text_field :envelope, :size => 2, :maxlength => 2
 %p
   = f.label :wave
-  = f.select :wave, [["12.5%", "12.5"], ["25%", "25"], ["50%", "50"], ["75%", "75"]], :selected => "50"
+  = f.select :wave, [["12.5%", "12.5"], ["25%", "25"], ["50%", "50"], ["75%", "75"]]
 %p
   = f.label :output
-  = f.select :output, ["LR", "L", "R"], :selected => "LR"
+  = f.select :output, ["LR", "L", "R"]
 %p
   = f.label :length
+  = f.text_field :length,  :size => 4, :maxlength => 5
 %p
   = f.label :sweep
+  = f.text_field :sweep, :size => 2, :maxlength => 2
 %p
   = f.label :vib_type
+  = f.select :vib_type, ["HF", "SIN", "TRI", "SQR"]
 %p
   = f.label :pu2_tune
+  = f.text_field :pu2_tune, :size => 2, :maxlength => 2
 %p
   = f.label :pu_fine
+  = f.text_field :pu_fine, :size => 1, :maxlength => 1
 %p
   = f.label :automate
+  = f.select :automate, ["ON", "OFF"]
 %p
   = f.label :table
+  = f.select :table, ["ON", "OFF"]
 %br
 %br
 %p
