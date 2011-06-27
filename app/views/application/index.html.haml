@@ -1,1 +1,20 @@
-plop
+%h3
+  LSDJ Patch Book.
+The Patch Book is an online repository for LSDJ synth patches.
+%br
+Explore & experiment.
+%br
+%h3
+  Recently added Instruments
+%table
+  %tr
+    %th{:width => "50%", :align => :left} Name
+    %th{:width => "50%", :align => :left} Type
+    %th{:width => "50%", :align => :left} Author
+  - @instruments.each do |ins|
+    %tr
+      %td= link_to ins.name, ins
+      %td= ins.type
+      %td= ins.author
+%br
+= paginate @instruments

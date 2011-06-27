@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   ### ACTIONS ###
   def index
+    @instruments = Instrument.page(params[:page])
   end
 
   ### BEFORE FILTERS ###
