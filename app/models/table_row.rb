@@ -6,8 +6,8 @@ class TableRow < ActiveRecord::Base
   validates_inclusion_of :row, :in => ["1", "2", "3", "4", "5", "6", "7", "8", "A", "B", "C", "D", "E", "F"]
   validates_length_of :vol, :maximum => 2
   validates_length_of :tsp, :maximum => 2
-  validates_length_of :cmd1, :maximum => 3
-  validates_length_of :cmd1, :maximum => 3
+  validates_length_of :cmd1, :maximum => 7
+  validates_length_of :cmd1, :maximum => 7
   validates_format_of :vol, :with => /^[A-F0-9]{2}$/
   validates_format_of :tsp, :with => /^[A-F0-9]{2}$/
   validates :cmd1, :presence => true, :lsdj_command => true

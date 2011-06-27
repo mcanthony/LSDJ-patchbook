@@ -15,8 +15,8 @@
           = trow.hidden_field :row
           %td= trow.text_field :vol, :maxlength => 2, :size => 1
           %td= trow.text_field :tsp, :maxlength => 2, :size => 1
-          %td= trow.text_field :cmd1, :maxlength => 3, :size => 1
-          %td= trow.text_field :cmd2, :maxlength => 3, :size => 1
+          %td= trow.text_field :cmd1, :maxlength => 7, :size => 4
+          %td= trow.text_field :cmd2, :maxlength => 7, :size => 4
 
 - if @instrument.table == "ON"
   %script
