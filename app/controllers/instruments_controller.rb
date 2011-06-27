@@ -20,6 +20,10 @@ class InstrumentsController < ApplicationController
     @instrument.table = "OFF"
   end
 
+  def show
+    @instrument = Instrument.find(params[:id])
+  end
+
   def create
     @instrument = Instrument.new(params[:instrument])
     @instrument.user = current_user

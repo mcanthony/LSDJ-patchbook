@@ -67,6 +67,15 @@ body {
 	line-height: 18px;
 }
 
+.verysmall {
+    font-size: 10px;
+    line-height: 15px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 /* Selection colours (easy to forget) */
 
 ::selection 	 	{background: rgb(255,255,158);}

@@ -1,0 +1,53 @@
+%h3= @instrument.name
+%span.verysmall.bold
+  %p
+    = @instrument.created_at
+  %p
+    Submitted by:
+    = link_to @instrument.user.login, @instrument.user
+  %p
+    Original author:
+    = @instrument.author
+
+%br
+
+%p
+  NAME
+  = @instrument.instrument_name
+%p
+  TYPE
+  = @instrument.type
+%p
+  ENVELOPE
+  = @instrument.envelope
+%p
+  WAVE
+  = @instrument.wave
+%p
+  OUTPUT
+  = @instrument.output
+%p
+  LENGTH
+  = @instrument.length
+%p
+  SWEEP
+  = @instrument.sweep
+%p
+  VIB.TYPE
+  = @instrument.vib_type
+%p
+  PU2 TUNE
+  = @instrument.pu2_tune
+%p
+  PU FINE
+  = @instrument.pu_fine
+%p
+  AUTOMATE
+  = @instrument.automate
+%p
+  TABLE
+  = @instrument.table
+%br
+%p
+  Description:
+  = @instrument.description
