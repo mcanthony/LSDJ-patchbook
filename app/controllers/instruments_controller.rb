@@ -66,4 +66,22 @@ class InstrumentsController < ApplicationController
       render :action => 'new'
     end
   end
+
+  def update
+    @instrument = Instrument.find(params[:id])
+    if @instrument.update_attributes(params[:instrument])
+      flash[:notice] = "Instrument updated"
+      redirect_to @instrument
+    else
+      render :action => 'edit'
+    end
+  end
+
+  def destroy
+    @instrument = Instrument.find(params[:id])
+    @instrument.destroy
+    flash[:notice] = "suprimé"
+    redirect_to root_url
+  end
+
 end

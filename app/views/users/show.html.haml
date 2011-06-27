@@ -1,17 +1,5 @@
-%p
-  Pseudo:
-  = @user.login
-%p
-  Email:
-  = mail_to @user.email
-- if !@user.firstname.blank?
-  %p
-    Prénom:
-    = @user.firstname
-- if !@user.lastname.blank?
-  %p
-    Nom:
-    = @user.lastname
+%h3
+  %span.bold= @user.login
 
 - if current_user == @user
   %br
@@ -19,3 +7,31 @@
     = link_to "Editer mon profil", edit_user_path(@user)
     %br
     = link_to "Supprimer mon compte", @user, :confirm => 'Etes vous sûr?', :method => :delete
+
+%br
+%br
+
+%h4
+  Authored
+%table
+  %tr
+    %th.small{:width => "50%", :align => :left} Name
+    %th.small{:width => "50%", :align => :left} Type
+    %th.small{:width => "50%", :align => :left} Author
+  - @authored.each do |ins|
+    %tr
+      %td= link_to ins.name, ins
+      %td= ins.type
+      %td= ins.author
+%h4
+  Submissions
+%table
+  %tr
+    %th.small{:width => "50%", :align => :left} Name
+    %th.small{:width => "50%", :align => :left} Type
+    %th.small{:width => "50%", :align => :left} Author
+  - @submitted.each do |ins|
+    %tr
+      %td= link_to ins.name, ins
+      %td= ins.type
+      %td= ins.author

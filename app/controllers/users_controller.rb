@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @authored = @user.instruments.where(:author => @user.login)
+    @submitted = @user.instruments.where('author IS NOT ?', @user.login)
   end
 
   def edit
