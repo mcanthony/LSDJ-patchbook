@@ -8,7 +8,7 @@ class SpecialHexValidator < ActiveModel::EachValidator
         end
       end
     end
-    if attribute == :pu_fine
+    if (attribute == :pu_fine) && (record.type == "PULSE")
       if !(value.upcase =~ /^[0-9A-F]$/)
         record.errors[attribute] << "invalid hex"
       end

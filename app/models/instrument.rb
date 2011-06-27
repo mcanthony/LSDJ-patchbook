@@ -12,13 +12,13 @@ class Instrument < ActiveRecord::Base
   validates_presence_of :name
   validates_length_of :instrument_name, :maximum => 5
   validates_format_of :envelope, :with => /^[A-F0-9]{2}$/ # Hex check, need to be UPCASE (set_upcase_fields)
-  validates_inclusion_of :wave, :in => ["12.5", "25", "50", "75"]
+  validates_inclusion_of :wave, :in => ["12.5", "25", "50", "75"], :if => Proc.new { |rec| rec.type == "PULSE" }
   validates_inclusion_of :output, :in => ["LR", "L", "R"]
   validates :length, :presence => true, :special_hex => true
-  validates_format_of :sweep, :with => /^[A-F0-9]{2}$/ # Hex check
-  validates_inclusion_of :vib_type, :in => ["HF", "SIN", "TRI", "SQR"]
-  validates_format_of :pu2_tune, :with => /^[A-F0-9]{2}$/ # Hex check
-  validates :pu_fine, :presence => true, :special_hex => true
+  validates_format_of :sweep, :with => /^[A-F0-9]{2}$/, :if => Proc.new { |rec| rec.type == "PULSE" }
+  validates_inclusion_of :vib_type, :in => ["HF", "SIN", "TRI", "SQR"], :if => Proc.new { |rec| rec.type == "PULSE" }
+  validates_format_of :pu2_tune, :with => /^[A-F0-9]{2}$/, :if => Proc.new { |rec| rec.type == "PULSE" }
+  validates :pu_fine, :presence => true, :special_hex => true, :if => Proc.new { |rec| rec.type == "PULSE" }
   validates_inclusion_of :automate, :in => ["ON", "OFF"]
   validates_inclusion_of :table, :in => ["ON", "OFF"]
 

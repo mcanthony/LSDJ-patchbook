@@ -12,6 +12,7 @@ class InstrumentsController < ApplicationController
     @instrument.wave = "50"
     @instrument.output = "LR"
     @instrument.length = "UNLIM"
+    @instrument.shape = "FF"
     @instrument.sweep = "FF"
     @instrument.vib_type = "HF"
     @instrument.pu2_tune = "00"
