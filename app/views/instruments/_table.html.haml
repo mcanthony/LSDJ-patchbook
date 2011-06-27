@@ -17,3 +17,7 @@
           %td= trow.text_field :tsp, :maxlength => 2, :size => 1
           %td= trow.text_field :cmd1, :maxlength => 3, :size => 1
           %td= trow.text_field :cmd2, :maxlength => 3, :size => 1
+
+- if @instrument.table == "ON"
+  %script
+    $("#INST_Table").toggle()
