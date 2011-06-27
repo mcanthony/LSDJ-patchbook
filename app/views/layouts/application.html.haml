@@ -32,6 +32,9 @@
           - else
             %li= link_to "Logout", logout_url
     #content
+      - if flash[:notice] || flash[:warning] || flash[:error]
+        .flash_box
+          = flash[:notice] || flash[:warning] || flash[:error]
       = yield
     %footer
       #left
