@@ -11,6 +11,6 @@
       %span.small Author
   - @instruments.each do |instr|
     %tr
-      %td{:width => "50%"}= link_to instr.name, instr
-      %td{:width => "50%"}= instr.type
-      %td{:width => "50%"}= instr.author
+      %td.small{:width => "50%"}= link_to instr.name, instr
+      %td.small{:width => "50%"}= instr.type
+      %td.small{:width => "50%"}= instr.author
