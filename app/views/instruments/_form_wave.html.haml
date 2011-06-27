@@ -1,3 +1,49 @@
+%table.instrument_properties
+  %tr
+    %td{:width => "70px"}= label_tag :type
+    %td{:width => "70px"}= @instrument.type
+    = f.hidden_field :type, :value => @instrument.type
+  %tr
+    %td= f.label :volume
+    %td= f.select :volume, ["0", "1", "2", "3"]
+  %tr
+    %td= f.label :output
+    %td= f.select :output, ["LR", "L", "R"]
+  %tr
+    %td= f.label :vib_type
+    %td= f.select :vib_type, ["HF", "SIN", "TRI", "SQR"]
+  %tr
+    %td= label_tag :synth
+    %td 0
+  %tr
+    %td= f.label :play
+    %td= f.select :play, ["ONCE", "LOOP", "PINGPONG", "MANUAL"]
+  %tr
+    %td= f.label :length
+    %td= f.text_field :length,  :size => 4, :maxlength => 5
+  %tr
+    %td= f.label :repeat
+    %td= f.text_field :repeat, :size => 4, :maxlength => 1
+  %tr
+    %td= f.label :speed
+    %td= f.text_field :speed, :size => 4, :maxlength => 1
+  %tr
+    %td= f.label :automate
+    %td= f.select :automate, ["ON", "OFF"]
+  %tr
+    %td= f.label :table
+    %td= f.select :table, ["ON", "OFF"], {}, {:onchange => 'if (this.options[this.selectedIndex].value == "ON") { $("#INST_Table").toggle();} else {$("#INST_Table").toggle();}'}
+  %tr
+    %td= f.label :share
+    %td= f.check_box :share
+
+= render :partial => "table", :locals => { :f => f }
+
+%br{:style => "clear: both;"}
 %p
-  = label_tag :type
-  = @instrument.type
+  = f.label :description
+  %br
+  = f.text_area :description, :rows => 5, :cols => 70
+%p
+  = f.submit "Save"
+  = link_to "Cancel", root_url

@@ -8,10 +8,15 @@ class InstrumentsController < ApplicationController
   def new
     @instrument = Instrument.new
     @instrument.type = params[:type].blank? ? "PULSE" : params[:type]
+    @instrument.volume = "3"
+    @instrument.play = "ONCE"
     @instrument.envelope = "A8"
     @instrument.wave = "50"
     @instrument.output = "LR"
-    @instrument.length = "UNLIM"
+    @instrument.length = "UNLIM" if (@instrument.type == "PULSE")
+    @instrument.length = "F" if (@instrument.type == "WAVE")
+    @instrument.repeat = "0"
+    @instrument.speed = "4"
     @instrument.shape = "FF"
     @instrument.sweep = "FF"
     @instrument.vib_type = "HF"

@@ -11,9 +11,10 @@
     %tr
       %td= f.label :name
       %td= f.text_field :name
+
     %tr{:height => "20px"}
     %tr
       %td= f.label :instrument_name
-      %td= f.text_field :instrument_name, :maxlength => 5, :size => 5
+      %td{:width => "70px"}= f.text_field :instrument_name, :maxlength => 5, :size => 5
   = render :partial => "form_#{@instrument.type.downcase}", :locals => { :f => f }
 

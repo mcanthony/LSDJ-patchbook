@@ -21,6 +21,8 @@ class Instrument < ActiveRecord::Base
   validates :pu_fine, :presence => true, :special_hex => true, :if => Proc.new { |rec| rec.type == "PULSE" }
   validates_inclusion_of :automate, :in => ["ON", "OFF"]
   validates_inclusion_of :table, :in => ["ON", "OFF"]
+  validates_format_of :speed, :with => /^[0-9A-F]$/, :if => Proc.new { |rec| rec.type == "WAVE" }
+  validates_format_of :repeat, :with => /^[0-9A-F]$/, :if => Proc.new { |rec| rec.type == "WAVE" }
 
 
   def set_upcase_fields
