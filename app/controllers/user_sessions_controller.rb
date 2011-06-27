@@ -2,10 +2,12 @@
 class UserSessionsController < ApplicationController
 
   def new
+    @app_title = "New session - LSDJ Patch Book"
     @user_session = UserSession.new
   end
 
   def create
+    @app_title = "New session - LSDJ Patch Book"
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Connecté."

@@ -3,6 +3,7 @@ class InstrumentsController < ApplicationController
   before_filter :require_user, :except => [:index, :show, :raw]
   def index
     @instruments = Instrument.page(params[:page])
+    @app_title = "Instruments - LSDJ Patch Book"
   end
 
   def new
@@ -42,19 +43,23 @@ class InstrumentsController < ApplicationController
       table_row = {:row => i, :vol => "00", :tsp => "00", :cmd1 => "-00", :cmd2 => "-00"}
       @instrument.table_row.build(table_row)
     end
+    @app_title = "New instrument - LSDJ Patch Book"
   end
 
   def show
     @instrument = Instrument.find(params[:id])
     @comment = Comment.new
     @comments = Comment.page(params[:page])
+    @app_title = "#{@instrument.author} - #{@instrument.name} - #{@instrument.type} - LSDJ Patch Book"
   end
 
   def edit
     @instrument = Instrument.find(params[:id])
+    @app_title = "Edit #{@instrument.name} by #{@instrument.author} - LSDJ Patch Book"
   end
 
   def create
+    @app_title = "Creating instrument - LSDJ Patch Book"
     @instrument = Instrument.new(params[:instrument])
     @instrument.user = current_user
     @instrument.author = current_user.login if @instrument.author.blank?
@@ -70,6 +75,7 @@ class InstrumentsController < ApplicationController
   end
 
   def update
+    @app_title = "Updating instrument - LSDJ Patch Book"
     @instrument = Instrument.find(params[:id])
     if @instrument.update_attributes(params[:instrument])
       flash[:notice] = "Instrument updated"

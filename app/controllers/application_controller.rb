@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   ### ACTIONS ###
   def index
     @instruments = Instrument.page(params[:page])
+    @app_title = "LSDJ Patch Book"
   end
 
   ### BEFORE FILTERS ###
