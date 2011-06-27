@@ -4,7 +4,7 @@ class Instrument < ActiveRecord::Base
   belongs_to :user
   has_many :table_row
   accepts_nested_attributes_for :table_row, :allow_destroy => false
-  paginates_per 10
+  paginates_per 20
   has_friendly_id :name, :use_slug => true
 
   before_validation :set_upcase_fields
