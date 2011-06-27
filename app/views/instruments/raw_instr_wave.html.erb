@@ -1,0 +1,51 @@
+Exported from <%= instrument_url(@instrument) %>
+
+Created on: <%= @instrument.created_at %>
+By: <%= @instrument.user.login %>
+Original author: <%= @instrument.author %>
+
+
+NAME      <%= @instrument.name %>
+TYPE      <%= @instrument.type %>
+
+VOLUME    <%= @instrument.volume  %>
+OUTPUT    <%= @instrument.output  %>
+VIB.TYPE  <%= @instrument.vib_type  %>
+
+SYNTH:
+PLAY      <%= @instrument.play  %>
+LENGTH    <%= @instrument.length  %>
+REPEAT    <%= @instrument.repeat  %>
+SPEED     <%= @instrument.speed  %>
+
+AUTOMATE  <%= @instrument.automate  %>
+TABLE     <%= @instrument.table  %>
+
+SYNTH:
+WAVE      <%= @instrument.synth_wave  %>
+FILTER    <%= @instrument.synth_filter  %>
+Q         <%= @instrument.synth_q  %>
+DIST      <%= @instrument.synth_dist  %>
+PHASE     <%= @instrument.synth_phase  %>
+
+START:
+VOLUME    <%= @instrument.synth_start_volume  %>
+CUTOFF    <%= @instrument.synth_start_cutoff  %>
+PHASE     <%= @instrument.synth_start_phase  %>
+VSHIFT    <%= @instrument.synth_start_vshift  %>
+
+END:
+VOLUME    <%= @instrument.synth_end_volume  %>
+CUTOFF    <%= @instrument.synth_end_cutoff  %>
+PHASE     <%= @instrument.synth_end_phase  %>
+VSHIFT    <%= @instrument.synth_end_vshift  %>
+
+<%- if @instrument.table == "ON" %>
+  TABLE:
+  ___| VOL | TSP |  CMD  |  CMD  |
+<%- @instrument.table_row.each do |trow| %>
+   <%- spaces1 = 6 - trow.cmd1.size %>
+   <%- spaces2 = 6 - trow.cmd2.size %>
+   <%= trow.row %> | <%= trow.vol %>  | <%= trow.tsp %>  | <%= trow.cmd1 %><%= " "*spaces1 %>| <%= trow.cmd2 %><%= " "*spaces2 %>|
+<% end %>
+<% end %>
