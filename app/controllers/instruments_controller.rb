@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class InstrumentsController < ApplicationController
   before_filter :require_user, :except => [:index, :show, :raw]
+
   def index
     @instruments = Instrument.page(params[:page])
     @app_title = "Instruments - LSDJ Patch Book"
@@ -70,6 +71,7 @@ class InstrumentsController < ApplicationController
   def edit
     @instrument = Instrument.find(params[:id])
     @app_title = "Edit #{@instrument.name} by #{@instrument.author} - LSDJ Patch Book"
+    redirect_to root_url if current_user != @instrument.user
   end
 
   def create
@@ -91,6 +93,7 @@ class InstrumentsController < ApplicationController
   def update
     @app_title = "Updating instrument - LSDJ Patch Book"
     @instrument = Instrument.find(params[:id])
+    redirect_to root_url if current_user != @instrument.user
     if @instrument.update_attributes(params[:instrument])
       flash[:notice] = "Instrument updated"
       redirect_to @instrument
@@ -101,6 +104,7 @@ class InstrumentsController < ApplicationController
 
   def destroy
     @instrument = Instrument.find(params[:id])
+    redirect_to root_url if current_user != @instrument.user
     @instrument.destroy
     flash[:notice] = "Instrument removed."
     redirect_to root_url

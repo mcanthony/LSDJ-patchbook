@@ -14,7 +14,9 @@
       %td= f.text_field :name
     %tr
       %td= f.label :tag_list
-      %td= f.text_field :tag_list
+      %td
+        = f.text_field :tag_list
+        .verysmall Tags are comma separated.
     %tr
       %td= f.label :sample
       %td= f.file_field :sample

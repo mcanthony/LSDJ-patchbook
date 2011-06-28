@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 class UsersController < ApplicationController
+  before_filter :require_user, :except => [:show, :new, :create, :index]
+
   def index
     @app_title = "Contributors - LSDJ Patch Book"
     @users = User.page(params[:page])
@@ -36,11 +38,15 @@ class UsersController < ApplicationController
   def edit
     @app_title = "Edit user - LSDJ Patch Book"
     @user = User.find(params[:id])
+    redirect_to root_url if current_user != @user
   end
 
   def update
     @app_title = "Update user - LSDJ Patch Book"
     @user = User.find(params[:id])
+
+    redirect_to root_url if current_user != @user
+
     if @user.update_attributes(params[:user])
       flash[:notice] = "User updated."
       redirect_to @user
@@ -51,6 +57,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    redirect_to root_url if current_user != @user
     @user.destroy
     flash[:notice] = "User removed."
     redirect_to root_url

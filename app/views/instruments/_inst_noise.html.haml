@@ -9,7 +9,7 @@
     %p
       Original author:
       = @instrument.author
-    - if current_user
+    - if current_user && @instrument.user == current_user
       %p
         = link_to "edit", edit_instrument_path(@instrument)
         = link_to "delete", @instrument, :method => :delete, :confirm => "Are you sure?"
