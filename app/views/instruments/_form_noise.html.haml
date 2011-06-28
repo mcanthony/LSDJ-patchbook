@@ -4,6 +4,9 @@
     %td= @instrument.type
     = f.hidden_field :type, :value => @instrument.type
   %tr
+    %td= label_tag :channel
+    %td= f.select :channel, ["PU1", "PU2", "WAV", "NOI"], :include_blank => true
+  %tr
     %td= f.label :envelope
     %td= f.text_field :envelope, :size => 2, :maxlength => 2
   %tr

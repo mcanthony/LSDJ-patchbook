@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110628054624) do
+ActiveRecord::Schema.define(:version => 20110628061300) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20110628054624) do
     t.string   "instrument_name",    :limit => 5
     t.integer  "user_id"
     t.string   "sample"
+    t.string   "channel",            :limit => 5
   end
 
   create_table "slugs", :force => true do |t|

@@ -47,6 +47,7 @@ class Instrument < ActiveRecord::Base
   validates_length_of :synth_end_vshift, :maximum => 2
   validates_format_of :synth_end_vshift, :with => /^[A-F0-9]{2}$/, :if => Proc.new { |rec| rec.type == "WAVE" }
   validates :sample, :file_size => { :maximum => 128.kilobyte.to_i }
+  validates_inclusion_of :channel, :in => ["", "PU1", "PU2", "WAV", "NOI"] # "" are for the blank "undecided" choice
 
   def set_upcase_fields
     self.instrument_name.upcase! if !self.instrument_name.blank?
@@ -77,5 +78,6 @@ class Instrument < ActiveRecord::Base
     self.vib_type.upcase! if !self.vib_type.blank?
     self.automate.upcase! if !self.automate.blank?
     self.table.upcase! if !self.table.blank?
+    self.channel.upcase! if !self.channel.blank?
   end
 end

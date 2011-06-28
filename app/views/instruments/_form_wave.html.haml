@@ -4,6 +4,9 @@
     %td{:width => "70px"}= @instrument.type
     = f.hidden_field :type, :value => @instrument.type
   %tr
+    %td= label_tag :channel
+    %td= f.select :channel, ["PU1", "PU2", "WAV", "NOI"], :include_blank => true
+  %tr
     %td= f.label :volume
     %td= f.select :volume, ["0", "1", "2", "3"]
   %tr
