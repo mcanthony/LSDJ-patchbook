@@ -33,9 +33,6 @@
   %tr
     %td= f.label :table
     %td= f.select :table, ["ON", "OFF"], {}, {:onchange => 'if (this.options[this.selectedIndex].value == "ON") { $("#INST_Table").toggle();} else {$("#INST_Table").toggle();}'}
-  %tr
-    %td= f.label :share
-    %td= f.check_box :share
 
 %table.wave_synth
   %tr

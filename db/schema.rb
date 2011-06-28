@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110627155838) do
+ActiveRecord::Schema.define(:version => 20110628054624) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -21,9 +21,8 @@ ActiveRecord::Schema.define(:version => 20110627155838) do
   end
 
   create_table "instruments", :force => true do |t|
-    t.string   "type",                                              :null => false
+    t.string   "type",                            :null => false
     t.string   "author"
-    t.boolean  "share",                           :default => true, :null => false
     t.text     "description"
     t.string   "name"
     t.string   "envelope"
